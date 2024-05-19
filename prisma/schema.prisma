@@ -16,5 +16,5 @@ datasource db {
 
 model image {
   id    Int     @id @default(autoincrement())
-  href String  @unique
+  src String  @unique
 }

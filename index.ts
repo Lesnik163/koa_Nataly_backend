@@ -1,4 +1,5 @@
 import Koa from "koa";
+const cors = require('@koa/cors');
 import koaBody from "koa-body";
 import { router } from "./router/photo";
 import { PrismaClient } from "@prisma/client";
@@ -12,6 +13,7 @@ async function main() {
   });
 
   app.use(koaBody());
+  app.use(cors());
   app.use(router.routes());
   app.use(router.allowedMethods);
 

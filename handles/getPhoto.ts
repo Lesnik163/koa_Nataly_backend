@@ -4,10 +4,7 @@ export const getPhotos = () =>
   new Promise(async (res, rej) => {
     const photos = await prisma.image.findMany().then((res) => res);
     try {
-      res({
-        success: true,
-        photos: photos,
-      });
+      res(photos);
     } catch (err) {
       rej(err);
     }
@@ -24,10 +21,7 @@ export const getPhoto = (photoId: number) =>
       if (!photo) {
         throw new Error(`Фотография с id ${photoId} не найдена`);
       }
-      res({
-        success: true,
-        photo: photo,
-      });
+      res(photo);
     } catch (err) {
       rej(err);
     }
